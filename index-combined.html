@@ -15,7 +15,6 @@
     <style>
         /* CSS Variables for theming */
         :root {
-            /* Light Mode Colors */
             --bg-primary: #e8f5e9;
             --bg-secondary: #a5d6a7;
             --bg-card: #fff;
@@ -352,19 +351,6 @@
             opacity: 0.9;
         }
 
-        .product-stock {
-            color: var(--text-secondary);
-            font-weight: 600;
-            margin-bottom: 12px;
-            font-size: 1.1em;
-        }
-
-        .product-rating {
-            color: #ffd700;
-            font-size: 1.3em;
-            margin-bottom: 16px;
-        }
-
         /* Details Button */
         .details-btn {
             display: inline-block;
@@ -404,21 +390,64 @@
             transition: var(--transition);
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        /* Search Container Styles */
+        .search-container {
+            margin: 24px 0;
+            padding: 0 20px;
         }
 
-        @keyframes slideIn {
-            from { 
-                opacity: 0;
-                transform: translateY(-30px) scale(0.95);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        .search-wrapper {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 50px 16px 20px;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            font-size: 1.1em;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            transition: var(--transition);
+            box-shadow: 0 2px 8px var(--shadow-secondary);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--btn-hover);
+            box-shadow: 0 4px 16px var(--shadow-secondary);
+            transform: translateY(-2px);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-ad);
+            opacity: 0.7;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--btn-primary);
+            color: var(--btn-text);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-btn:hover {
+            background: var(--btn-hover);
+            transform: translateY(-50%) scale(1.1);
         }
 
         /* Responsive Design */
@@ -511,138 +540,11 @@
         @keyframes imageLoad {
             to { opacity: 1; }
         }
-
-        /* Search Container Styles */
-        .search-container {
-            margin: 24px 0;
-            padding: 0 20px;
-        }
-
-        .search-wrapper {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 16px 50px 16px 20px;
-            border: 2px solid var(--border-primary);
-            border-radius: 25px;
-            font-size: 1.1em;
-            background: var(--bg-card);
-            color: var(--text-primary);
-            transition: var(--transition);
-            box-shadow: 0 2px 8px var(--shadow-secondary);
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--btn-hover);
-            box-shadow: 0 4px 16px var(--shadow-secondary);
-            transform: translateY(-2px);
-        }
-
-        .search-input::placeholder {
-            color: var(--text-ad);
-            opacity: 0.7;
-        }
-
-        .search-btn {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--btn-primary);
-            color: var(--btn-text);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            font-size: 1.2em;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .search-btn:hover {
-            background: var(--btn-hover);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        /* Notification styles */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--bg-card);
-            color: var(--text-primary);
-            padding: 16px 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px var(--shadow-primary);
-            border: 2px solid var(--border-primary);
-            z-index: 10000;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            max-width: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .notification-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        .notification-message {
-            flex: 1;
-            margin-right: 12px;
-        }
-
-        .notification-close {
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5em;
-            cursor: pointer;
-            padding: 0;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .notification-close:hover {
-            background: var(--bg-category);
-        }
-
-        .notification-success {
-            border-color: #4caf50;
-            background: #e8f5e9;
-        }
-
-        .notification-error {
-            border-color: #f44336;
-            background: #ffebee;
-        }
-
-        .notification-info {
-            border-color: #2196f3;
-            background: #e3f2fd;
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Nb Chill Shop</h1>
+        <h1>Nb_Chill Shop</h1>
         <button class="theme-toggle" onclick="toggleTheme()" title="ປ່ຽນທີມ">🌙</button>
     </header>
     <main>
@@ -677,7 +579,7 @@
                 <!-- ຕູ້ຝັກໄຂ່ 64 ຫນ່ອຍ -->
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="images/Nb_Chill_ນຳເຂົ້າ2.jpgNb_Chill_ຕູ້ຝັກໄຂ່64.jpg" alt="ຕູ້ຝັກໄຂ່ 64 ຫນ່ອຍ" class="product-image">
+                        <img src="images/Nb_Chill_ນຳເຂົ້າ2.jpg" alt="ຕູ້ຝັກໄຂ່ 64 ຫນ່ອຍ" class="product-image">
                         <img src="images/Nb_Chill_ຕູ້ຝັກໄຂ່64.jpg" alt="ຕູ້ຝັກໄຂ່ 64 ຫນ່ອຍ" class="product-detail-image">
                     </div>
                     <div class="product-info">
@@ -691,7 +593,7 @@
                 <!-- ຕູ້ຝັກໄຂ່ 128 ຫນ່ອຍ -->
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="images/Nb_Chill_ນຳເຂົ້າ.jpgNb_Chill_ຕູ້ຝັກໄຂ່128.jpg" alt="ຕູ້ຝັກໄຂ່ 128 ຫນ່ອຍ" class="product-image">
+                        <img src="images/Nb_Chill_ນຳເຂົ້າ.jpg" alt="ຕູ້ຝັກໄຂ່ 128 ຫນ່ອຍ" class="product-image">
                         <img src="images/Nb_Chill_ຕູ້ຝັກໄຂ່128.jpg" alt="ຕູ້ຝັກໄຂ່ 128 ຫນ່ອຍ" class="product-detail-image">
                     </div>
                     <div class="product-info">
@@ -716,11 +618,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             initializeTheme();
             addSearchInput();
-            updateCartDisplay();
-            addScrollToTopButton();
-            addImageLoadingAnimation();
-            addProductHoverEffects();
-            addCategoryHoverEffects();
         });
 
         // Theme toggle functionality
@@ -807,79 +704,6 @@
             main.insertBefore(searchContainer, adSection);
         }
 
-        // Add smooth scroll to top functionality
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Add scroll to top button
-        function addScrollToTopButton() {
-            const scrollButton = document.createElement('button');
-            scrollButton.innerHTML = '↑';
-            scrollButton.className = 'scroll-to-top';
-            scrollButton.onclick = scrollToTop;
-            scrollButton.style.cssText = `
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                background: var(--btn-primary);
-                color: var(--btn-text);
-                border: none;
-                cursor: pointer;
-                font-size: 1.5em;
-                box-shadow: 0 4px 12px var(--shadow-primary);
-                transition: var(--transition);
-                opacity: 0;
-                visibility: hidden;
-                z-index: 1000;
-            `;
-            
-            document.body.appendChild(scrollButton);
-            
-            // Show/hide based on scroll position
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    scrollButton.style.opacity = '1';
-                    scrollButton.style.visibility = 'visible';
-                } else {
-                    scrollButton.style.opacity = '0';
-                    scrollButton.style.visibility = 'hidden';
-                }
-            });
-            
-            // Hover effect
-            scrollButton.addEventListener('mouseenter', () => {
-                scrollButton.style.transform = 'scale(1.1)';
-                scrollButton.style.background = 'var(--btn-hover)';
-            });
-            
-            scrollButton.addEventListener('mouseleave', () => {
-                scrollButton.style.transform = 'scale(1)';
-                scrollButton.style.background = 'var(--btn-primary)';
-            });
-        }
-
-        // Add loading animation for images
-        function addImageLoadingAnimation() {
-            const images = document.querySelectorAll('img');
-            
-            images.forEach(img => {
-                img.addEventListener('load', function() {
-                    this.style.animation = 'imageLoad 0.5s ease forwards';
-                });
-                
-                img.addEventListener('error', function() {
-                    this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRjNGM0YzIi8+Cjx0ZXh0IHg9IjUwIiB5PSI1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+Tm8gSW1hZ2U8L3RleHQ+Cjwvc3ZnPgo=';
-                });
-            });
-        }
-
         // Add keyboard navigation support
         document.addEventListener('keydown', function(event) {
             // Ctrl/Cmd + K to focus search
@@ -897,83 +721,6 @@
                 toggleTheme();
             }
         });
-
-        // Add product hover effects
-        function addProductHoverEffects() {
-            const products = document.querySelectorAll('.product-card');
-            
-            products.forEach(product => {
-                product.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-4px) scale(1.02)';
-                });
-                
-                product.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            });
-        }
-
-        // Add category hover effects
-        function addCategoryHoverEffects() {
-            const categories = document.querySelectorAll('.category');
-            
-            categories.forEach(category => {
-                category.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-4px)';
-                    this.style.borderColor = 'var(--border-primary)';
-                });
-                
-                category.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                    this.style.borderColor = 'transparent';
-                });
-            });
-        }
-
-        // Shopping Cart System (simplified for this version)
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-        function updateCartDisplay() {
-            // This function is kept for compatibility but simplified
-            // since we don't have cart UI in this version
-        }
-
-        // Notification system
-        function showNotification(message, type = 'info') {
-            // Remove existing notifications
-            const existingNotifications = document.querySelectorAll('.notification');
-            existingNotifications.forEach(notification => notification.remove());
-            
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = `notification notification-${type}`;
-            notification.innerHTML = `
-                <div class="notification-content">
-                    <span class="notification-message">${message}</span>
-                    <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
-                </div>
-            `;
-            
-            // Add to page
-            document.body.appendChild(notification);
-            
-            // Animate in
-            setTimeout(() => {
-                notification.style.transform = 'translateX(0)';
-            }, 10);
-            
-            // Auto remove after 3 seconds
-            setTimeout(() => {
-                if (notification.parentElement) {
-                    notification.style.transform = 'translateX(100%)';
-                    setTimeout(() => {
-                        if (notification.parentElement) {
-                            notification.remove();
-                        }
-                    }, 300);
-                }
-            }, 3000);
-        }
     </script>
 </body>
 </html>
