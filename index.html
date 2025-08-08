@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร้านขายสินค้า Nb Chill</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(120deg, #e8f5e9 0%, #a5d6a7 100%);
+            color: #222;
+        }
+        header {
+            background: #388e3c;
+            color: #fff;
+            padding: 28px 0 18px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        nav {
+            margin: 0 auto;
+            max-width: 700px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            padding: 12px 0;
+        }
+        nav a {
+            color: #388e3c;
+            background: #fff;
+            border-radius: 8px;
+            padding: 8px 18px;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(56,142,60,0.07);
+            transition: background 0.2s, color 0.2s;
+        }
+        nav a.active, nav a:hover {
+            background: #388e3c;
+            color: #fff;
+        }
+        main {
+            max-width: 900px;
+            margin: 36px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(56,142,60,0.09);
+            padding: 36px 32px;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+        .profile img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid #388e3c;
+            object-fit: cover;
+        }
+        .profile-info {
+            flex: 1;
+        }
+        .contact {
+            margin-top: 12px;
+            font-size: 1.1em;
+        }
+        .contact a {
+            color: #388e3c;
+            text-decoration: underline;
+        }
+        h2 {
+            color: #388e3c;
+            margin-bottom: 12px;
+        }
+        .categories {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .category {
+            background: #e8f5e9;
+            border-radius: 12px;
+            padding: 18px;
+            flex: 1 1 220px;
+            box-shadow: 0 2px 8px rgba(56,142,60,0.07);
+        }
+        .category h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        .products {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .product {
+            background: #f9fbe7;
+            border-radius: 10px;
+            padding: 14px;
+            width: 180px;
+            box-shadow: 0 2px 8px rgba(56,142,60,0.05);
+            text-align: center;
+        }
+        .product img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .product-price {
+            color: #388e3c;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .price-copy {
+            cursor: pointer;
+            margin-left: 8px;
+            font-size: 1em;
+            color: #388e3c;
+            vertical-align: middle;
+        }
+        .price-copy:hover {
+            color: #2e7d32;
+        }
+        .btn {
+            background: #388e3c;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 18px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #2e7d32;
+        }
+        .ad-section {
+            background: #fffde7;
+            border: 2px dashed #388e3c;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 24px 0;
+            text-align: center;
+            color: #888;
+            font-size: 1.15em;
+        }
+        footer {
+            text-align: center;
+            padding: 18px 0;
+            background: #f3f3f3;
+            color: #888;
+            margin-top: 48px;
+            font-size: 1em;
+        }
+        #sortPrice {
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid #388e3c;
+            font-size: 1em;
+            margin-left: 8px;
+        }
+        @media (max-width: 700px) {
+            main {
+                padding: 16px 4px;
+            }
+            .categories {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .category {
+                padding: 12px;
+            }
+            .products {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .product {
+                width: 100%;
+                padding: 10px;
+            }
+            .profile {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav {
+                flex-direction: column;
+                gap: 8px;
+                padding: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ร้านขายสินค้า Nb Chill</h1>
+        <nav>
+            <a href="#all" class="active" onclick="showCategory('all')">ทั้งหมด</a>
+            <a href="#clothes" onclick="showCategory('clothes')">เสื้อผ้า</a>
+            <a href="#tech" onclick="showCategory('tech')">อุปกรณ์ไอที</a>
+            <a href="#snack" onclick="showCategory('snack')">ขนม</a>
+        </nav>
+    </header>
+    <main>
+        <div class="ad-section">
+            พื้นที่ลงโฆษณา Google AdSense หรืออื่น ๆ<br>
+            <!-- ตัวอย่างโค้ด Google AdSense -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <br>ติดต่อ <a href="mailto:ads@nbchill.com">ads@nbchill.com</a>
+        </div>
+        <div class="profile">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Profile">
+            <div class="profile-info">
+                <h2>Nb Chill</h2>
+                <p>ร้านขายสินค้าหลากหลายประเภท<br>ติดต่อสอบถามหรือสั่งซื้อได้เลย!</p>
+                <div class="contact">
+                    Facebook: <a href="https://www.facebook.com/profile.php?id=61578136801566" target="_blank">Nb Chill</a><br>
+                    โทร: <a href="tel:0812345678">081-234-5678</a><br>
+                    Line: <a href="https://line.me/ti/p/~yourlineid" target="_blank">@yourlineid</a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:right;margin-bottom:12px;">
+            <label for="sortPrice">เรียงราคา:</label>
+            <select id="sortPrice" onchange="sortProducts()">
+                <option value="asc">ถูกไปแพง</option>
+                <option value="desc">แพงไปถูก</option>
+            </select>
+        </div>
+        <section class="categories">
+            <div class="category" id="clothes-category">
+                <h3>เสื้อผ้า</h3>
+                <div class="products">
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=200&q=80" alt="T-shirt">
+                        <div class="product-title">เสื้อยืดเท่ๆ</div>
+                        <div class="product-price">
+                            ฿199
+                            <span class="price-copy" onclick="navigator.clipboard.writeText('199');alert('คัดลอกราคาแล้ว!')" title="คัดลอกราคา">📋</span>
+                        </div>
+                        <button class="btn" onclick="window.open('https://youtube.com/', '_blank')">สั่งซื้อ</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=200&q=80" alt="Hoodie">
+                        <div class="product-title">เสื้อฮู้ด</div>
+                        <div class="product-price">
+                            ฿299
+                            <span class="price-copy" onclick="navigator.clipboard.writeText('299');alert('คัดลอกราคาแล้ว!')" title="คัดลอกราคา">📋</span>
+                        </div>
+                        <button class="btn" onclick="window.open('https://youtube.com/', '_blank')">สั่งซื้อ</button>
+                    </div>
+                </div>
+            </div>
+            <div class="category" id="tech-category">
+                <h3>อุปกรณ์ไอที</h3>
+                <div class="products">
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=200&q=80" alt="Mouse">
+                        <div class="product-title">เมาส์ไร้สาย</div>
+                        <div class="product-price">
+                            ฿350
+                            <span class="price-copy" onclick="navigator.clipboard.writeText('350');alert('คัดลอกราคาแล้ว!')" title="คัดลอกราคา">📋</span>
+                        </div>
+                        <button class="btn" onclick="window.open('https://youtube.com/', '_blank')">สั่งซื้อ</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=200&q=80" alt="Keyboard">
+                        <div class="product-title">คีย์บอร์ดเกมมิ่ง</div>
+                        <div class="product-price">
+                            ฿690
+                            <span class="price-copy" onclick="navigator.clipboard.writeText('690');alert('คัดลอกราคาแล้ว!')" title="คัดลอกราคา">📋</span>
+                        </div>
+                        <button class="btn" onclick="window.open('https://youtube.com/', '_blank')">สั่งซื้อ</button>
+                    </div>
+                </div>
+            </div>
+            <div class="category" id="snack-category">
+                <h3>ขนม</h3>
+                <div class="products">
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=200&q=80" alt="Snack">
+                        <div class="product-title">มันฝรั่งทอด</div>
+                        <div class="product-price">
+                            ฿35
+                            <span class="price-copy" onclick="navigator.clipboard.writeText('35');alert('คัดลอกราคาแล้ว!')" title="คัดลอกราคา">📋</span>
+                        </div>
+                        <button class="btn" onclick="window.open('https://youtube.com/', '_blank')">สั่งซื้อ</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1464306076886-debede6bbf94?auto=format&fit=crop&w=200&q=80" alt="Chocolate">
+                        <div class="product-title">ช็อกโกแลต</div>
+                        <div class="product-price">
+                            ฿45
+                            <span class="price-copy" onclick="navigator.clipboard.writeText('45');alert('คัดลอกราคาแล้ว!')" title="คัดลอกราคา">📋</span>
+                        </div>
+                        <button class="btn" onclick="window.open('https://youtube.com/', '_blank')">สั่งซื้อ</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Nb Chill. สร้างโดย GitHub Copilot
+    </footer>
+    <script>
+        function showCategory(cat) {
+            document.getElementById('clothes-category').style.display = (cat === 'all' || cat === 'clothes') ? 'block' : 'none';
+            document.getElementById('tech-category').style.display = (cat === 'all' || cat === 'tech') ? 'block' : 'none';
+            document.getElementById('snack-category').style.display = (cat === 'all' || cat === 'snack') ? 'block' : 'none';
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            if(cat==='all') document.querySelector('nav a[href="#all"]').classList.add('active');
+            if(cat==='clothes') document.querySelector('nav a[href="#clothes"]').classList.add('active');
+            if(cat==='tech') document.querySelector('nav a[href="#tech"]').classList.add('active');
+            if(cat==='snack') document.querySelector('nav a[href="#snack"]').classList.add('active');
+        }
+        // default show all
+        showCategory('all');
+
+        function sortProducts() {
+            const order = document.getElementById('sortPrice').value;
+            const categories = ['clothes-category','tech-category','snack-category'];
+            categories.forEach(catId => {
+                const cat = document.getElementById(catId);
+                if (!cat) return;
+                const products = Array.from(cat.querySelectorAll('.product'));
+                products.sort((a, b) => {
+                    const priceA = parseInt(a.querySelector('.product-price').textContent.replace(/[^0-9]/g, ''));
+                    const priceB = parseInt(b.querySelector('.product-price').textContent.replace(/[^0-9]/g, ''));
+                    return order === 'asc' ? priceA - priceB : priceB - priceA;
+                });
+                const productsContainer = cat.querySelector('.products');
+                products.forEach(p => productsContainer.appendChild(p));
+            });
+        }
+    </script>
+</body>
+</html>
