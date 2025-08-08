@@ -171,33 +171,69 @@
             font-size: 1em;
             margin-left: 8px;
         }
+        /* ปรับปรุง responsive ให้ดูดีขึ้นบนมือถือ */
         @media (max-width: 700px) {
             main {
-                padding: 16px 4px;
+                padding: 8px 2px;
+                border-radius: 0;
+                box-shadow: none;
             }
             .categories {
                 flex-direction: column;
-                gap: 12px;
+                gap: 16px;
             }
             .category {
-                padding: 12px;
+                padding: 10px;
+                border-radius: 10px;
             }
             .products {
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
             }
             .product {
                 width: 100%;
                 padding: 10px;
+                margin-bottom: 8px;
+                box-shadow: 0 1px 4px rgba(56,142,60,0.08);
             }
             .profile {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
+                gap: 10px;
+            }
+            .profile img {
+                width: 70px;
+                height: 70px;
             }
             nav {
                 flex-direction: column;
-                gap: 8px;
+                gap: 6px;
                 padding: 8px 0;
+                max-width: 100%;
+            }
+            nav a {
+                padding: 10px 0;
+                width: 100%;
+                text-align: center;
+                font-size: 1.1em;
+            }
+            .ad-section {
+                padding: 10px;
+                font-size: 1em;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            h2, h3 {
+                font-size: 1.1em;
+            }
+            .contact {
+                font-size: 1em;
+            }
+            #sortPrice {
+                font-size: 1em;
+                width: 100%;
+                margin: 8px 0;
             }
         }
     </style>
@@ -209,7 +245,7 @@
             <a href="#all" class="active" onclick="showCategory('all')">ทั้งหมด</a>
             <a href="#clothes" onclick="showCategory('clothes')">เสื้อผ้า</a>
             <a href="#tech" onclick="showCategory('tech')">อุปกรณ์ไอที</a>
-            <a href="#snack" onclick="showCategory('snack')">ขนม</a>
+            <!-- <a href="#snack" onclick="showCategory('snack')">ขนม</a> -->
         </nav>
     </header>
     <main>
@@ -241,8 +277,8 @@
         <div style="text-align:right;margin-bottom:12px;">
             <label for="sortPrice">เรียงราคา:</label>
             <select id="sortPrice" onchange="sortProducts()">
-                <option value="asc">ถูกไปแพง</option>
-                <option value="desc">แพงไปถูก</option>
+                <option value="asc">ถูก ไป แพง</option>
+                <option value="desc">แพง ไป ถูก</option>
             </select>
         </div>
         <section class="categories">
