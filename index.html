@@ -236,6 +236,63 @@
                 margin: 8px 0;
             }
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.2s;
+        }
+        .modal[style*="display: flex"] {
+            display: flex !important;
+        }
+        .modal-content {
+            background: #fff;
+            border-radius: 16px;
+            max-width: 90vw;
+            width: 350px;
+            padding: 24px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(56,142,60,0.09);
+        }
+        .modal .close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 2em;
+            cursor: pointer;
+            color: #388e3c;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #viewExtraImagesBtn {
+            background: #8bc34a;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 18px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+        #viewExtraImagesBtn:hover {
+            background: #388e3c;
+        }
+        #extraImagesContainer img {
+            margin-top: 8px;
+            max-width: 100%;
+            border: 2px solid #e8f5e9;
+        }
     </style>
 </head>
 <body>
@@ -260,17 +317,17 @@
             <script>
                  (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-            <br>ติดต่อ <a href="mailto:ads@nbchill.com">ads@nbchill.com</a>
+            <br>ติดต่อ <a href="sinlotbn@gmail.com">sinlotbn@gmail.com</a>
         </div>
         <div class="profile">
-            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Profile">
+            <img src="Nb_Chill_Logo.jpg" alt="Profile">
             <div class="profile-info">
                 <h2>Nb Chill</h2>
                 <p>ร้านขายสินค้าหลากหลายประเภท<br>ติดต่อสอบถามหรือสั่งซื้อได้เลย!</p>
                 <div class="contact">
                     Facebook: <a href="https://www.facebook.com/profile.php?id=61578136801566" target="_blank">Nb Chill</a><br>
-                    โทร: <a href="tel:0812345678">081-234-5678</a><br>
-                    Line: <a href="https://line.me/ti/p/~yourlineid" target="_blank">@yourlineid</a>
+                    ເບີ: <a href="tel:+856 20 58 438 655">+856 20 58 438 655</a><br>
+                    WhatApp: <a href="https://wa.me/c/+856 20 58 438 655" target="_blank">+856 20 58 438 655</a>
                 </div>
             </div>
         </div>
@@ -286,7 +343,7 @@
                 <h3>เสื้อผ้า</h3>
                 <div class="products">
                     <div class="product">
-                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=200&q=80" alt="T-shirt">
+                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=200&q=80" alt="T-shirt" onclick="openModal('เสื้อยืดเท่ๆ')" style="cursor:pointer;">
                         <div class="product-title">เสื้อยืดเท่ๆ</div>
                         <div class="product-price">
                             ฿199
@@ -295,7 +352,7 @@
                         <button class="btn" onclick="window.open('https://youtube.com/', '_blank')">สั่งซื้อ</button>
                     </div>
                     <div class="product">
-                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=200&q=80" alt="Hoodie">
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=200&q=80" alt="Hoodie" onclick="openModal('เสื้อฮู้ด')" style="cursor:pointer;">
                         <div class="product-title">เสื้อฮู้ด</div>
                         <div class="product-price">
                             ฿299
@@ -309,7 +366,7 @@
                 <h3>อุปกรณ์ไอที</h3>
                 <div class="products">
                     <div class="product">
-                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=200&q=80" alt="Mouse">
+                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=200&q=80" alt="Mouse" onclick="openModal('เมาส์ไร้สาย')" style="cursor:pointer;">
                         <div class="product-title">เมาส์ไร้สาย</div>
                         <div class="product-price">
                             ฿350
@@ -318,7 +375,7 @@
                         <button class="btn" onclick="window.open('https://youtube.com/', '_blank')">สั่งซื้อ</button>
                     </div>
                     <div class="product">
-                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=200&q=80" alt="Keyboard">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=200&q=80" alt="Keyboard" onclick="openModal('คีย์บอร์ดเกมมิ่ง')" style="cursor:pointer;">
                         <div class="product-title">คีย์บอร์ดเกมมิ่ง</div>
                         <div class="product-price">
                             ฿690
@@ -332,7 +389,7 @@
                 <h3>ขนม</h3>
                 <div class="products">
                     <div class="product">
-                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=200&q=80" alt="Snack">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=200&q=80" alt="Snack" onclick="openModal('มันฝรั่งทอด')" style="cursor:pointer;">
                         <div class="product-title">มันฝรั่งทอด</div>
                         <div class="product-price">
                             ฿35
@@ -341,7 +398,7 @@
                         <button class="btn" onclick="window.open('https://youtube.com/', '_blank')">สั่งซื้อ</button>
                     </div>
                     <div class="product">
-                        <img src="https://images.unsplash.com/photo-1464306076886-debede6bbf94?auto=format&fit=crop&w=200&q=80" alt="Chocolate">
+                        <img src="https://images.unsplash.com/photo-1464306076886-debede6bbf94?auto=format&fit=crop&w=200&q=80" alt="Chocolate" onclick="openModal('ช็อกโกแลต')" style="cursor:pointer;">
                         <div class="product-title">ช็อกโกแลต</div>
                         <div class="product-price">
                             ฿45
@@ -356,6 +413,21 @@
     <footer>
         &copy; 2025 Nb Chill. สร้างโดย GitHub Copilot
     </footer>
+    <!-- เพิ่ม modal สำหรับแสดงรายละเอียดสินค้า -->
+    <div id="productModal" class="modal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);justify-content:center;align-items:center;">
+      <div class="modal-content" style="background:#fff;border-radius:16px;max-width:90vw;width:350px;padding:24px;position:relative;text-align:center;">
+        <span class="close" onclick="closeModal()" style="position:absolute;top:12px;right:18px;font-size:2em;cursor:pointer;">&times;</span>
+        <img id="modalImg" src="" alt="" style="width:100%;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.09);margin-bottom:16px;">
+        <h3 id="modalTitle"></h3>
+        <div id="modalPrice" style="color:#388e3c;font-weight:600;margin-bottom:12px;"></div>
+        <div id="modalDesc" style="font-size:1.1em;color:#444;margin-bottom:18px;"></div>
+        <a id="modalBuy" href="#" target="_blank" class="btn">ไปยังลิ้งสั่งซื้อ</a>
+        <!-- เพิ่ม tag สำหรับแก้ไข/เพิ่มรูปภาพสินค้า และปุ่มดูรูปสินค้าเพิ่มเติม -->
+        <!-- tag:product-images-edit -->
+        <div id="extraImagesContainer" style="margin-top:12px;text-align:center;"></div>
+        <button id="viewExtraImagesBtn" class="btn" style="margin-top:8px;display:none;" onclick="showExtraImages()">ดูรูปสินค้าเพิ่มเติม</button>
+      </div>
+    </div>
     <script>
         function showCategory(cat) {
             document.getElementById('clothes-category').style.display = (cat === 'all' || cat === 'clothes') ? 'block' : 'none';
@@ -385,6 +457,104 @@
                 const productsContainer = cat.querySelector('.products');
                 products.forEach(p => productsContainer.appendChild(p));
             });
+        }
+        // ข้อมูลรายละเอียดสินค้า
+        const productDetails = {
+            'เสื้อยืดเท่ๆ': {
+                img: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=200&q=80',
+                price: '฿199',
+                desc: 'เสื้อยืดเนื้อผ้านุ่ม ใส่สบาย เหมาะกับทุกโอกาส',
+                buy: 'https://youtube.com/'
+            },
+            'เสื้อฮู้ด': {
+                img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=200&q=80',
+                price: '฿299',
+                desc: 'เสื้อฮู้ดดีไซน์ทันสมัย ใส่ได้ทุกฤดู',
+                buy: 'https://youtube.com/'
+            },
+            'เมาส์ไร้สาย': {
+                img: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=200&q=80',
+                price: '฿350',
+                desc: 'เมาส์ไร้สาย ตอบสนองไว ใช้งานสะดวก',
+                buy: 'https://youtube.com/'
+            },
+            'คีย์บอร์ดเกมมิ่ง': {
+                img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=200&q=80',
+                price: '฿690',
+                desc: 'คีย์บอร์ดเกมมิ่งไฟ RGB ปุ่มนุ่มมือ',
+                buy: 'https://youtube.com/'
+            },
+            'มันฝรั่งทอด': {
+                img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=200&q=80',
+                price: '฿35',
+                desc: 'มันฝรั่งทอดกรอบ อร่อยทุกคำ',
+                buy: 'https://youtube.com/'
+            },
+            'ช็อกโกแลต': {
+                img: 'https://images.unsplash.com/photo-1464306076886-debede6bbf94?auto=format&fit=crop&w=200&q=80',
+                price: '฿45',
+                desc: 'ช็อกโกแลตเข้มข้น หวานละมุน',
+                buy: 'https://youtube.com/'
+            }
+        };
+        // เพิ่มข้อมูลรูปภาพเพิ่มเติมแต่ละสินค้า (แก้ไข/เพิ่มรูปได้ที่ tag:product-images-edit)
+        const extraImages = {
+            'เสื้อยืดเท่ๆ': [
+                'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=200&q=80',
+                'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=200&q=80'
+            ],
+            'เสื้อฮู้ด': [
+                'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=200&q=80',
+                'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80'
+            ],
+            'เมาส์ไร้สาย': [
+                'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=200&q=80',
+                'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=200&q=80'
+            ],
+            'คีย์บอร์ดเกมมิ่ง': [
+                'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=200&q=80',
+                'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=200&q=80'
+            ],
+            'มันฝรั่งทอด': [
+                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=200&q=80',
+                'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=200&q=80'
+            ],
+            'ช็อกโกแลต': [
+                'https://images.unsplash.com/photo-1464306076886-debede6bbf94?auto=format&fit=crop&w=200&q=80',
+                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=200&q=80'
+            ]
+        };
+        let currentProduct = null;
+        function openModal(productName) {
+            const d = productDetails[productName];
+            if(!d) return;
+            document.getElementById('modalImg').src = d.img;
+            document.getElementById('modalTitle').textContent = productName;
+            document.getElementById('modalPrice').textContent = d.price;
+            document.getElementById('modalDesc').textContent = d.desc;
+            document.getElementById('modalBuy').href = d.buy;
+            document.getElementById('productModal').style.display = 'flex';
+            currentProduct = productName;
+            // เช็คว่ามีรูปเพิ่มเติมไหม
+            const extra = extraImages[productName];
+            if(extra && extra.length > 1) {
+                document.getElementById('viewExtraImagesBtn').style.display = 'inline-block';
+            } else {
+                document.getElementById('viewExtraImagesBtn').style.display = 'none';
+            }
+            document.getElementById('extraImagesContainer').innerHTML = '';
+        }
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+        function showExtraImages() {
+            const extra = extraImages[currentProduct];
+            if(!extra || extra.length < 2) return;
+            let html = '';
+            for(let i=1;i<extra.length;i++) {
+                html += `<img src="${extra[i]}" alt="รูปเพิ่มเติม" style="width:100%;border-radius:12px;margin-bottom:10px;box-shadow:0 2px 12px rgba(0,0,0,0.09);">`;
+            }
+            document.getElementById('extraImagesContainer').innerHTML = html;
         }
     </script>
 </body>
