@@ -1,6 +1,6 @@
 ---
 layout: default
-title: รายละเอียดสินค้า | Nb Chill
+title: ລາຍລະອຽດສິນຄ້າ | SinlotHub
 ---
 
 {% include header.html %}
