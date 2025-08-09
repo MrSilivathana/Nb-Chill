@@ -1,13 +1,15 @@
 # Site settings
-layout: default
-title: Nb Chill
+title: "sinlothub - ร้านค้าออนไลน์"
 email: sinlotbn@gmail.com
-description: ຮ້ານຂາຍສິນຄ້າ Nb Chill
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
+description: "sinlothub , SinlotHub , MrNo0B_F1 , Nb_Chill, ລາຍການຂາຍສິນຄ້າ, ລາຍການຂາຍ, ລາຍການ, ຂາຍ, ຊື້, ຊື້-ຂາຍ, ຊື້-ຂາຍ-ເຄື່ອງ"
+baseurl: "" # ปล่อยว่างถ้าใช้ root domain เช่น sinlothub.netlify.app
+url: "https://sinlothub.netlify.app" # ใส่ URL จาก Netlify
+twitter_username: sinlothub # ถ้ามี Twitter
 
 # Build settings
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag # เพิ่มเพื่อ SEO
+  - jekyll-sitemap # เพิ่มเพื่อสร้าง sitemap.xml
